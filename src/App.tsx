@@ -67,47 +67,45 @@ export default function App() {
       </section>
 
       {/* Right Side: White Background Info */}
-      <section className="w-full md:w-1/2 bg-white flex flex-col items-center lg:items-start px-8 py-16 md:p-10 lg:p-12 overflow-y-auto">
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-xl w-full my-auto"
+      <section className="w-full md:w-1/2 bg-white flex flex-col items-start px-8 py-16 md:px-12 lg:px-16 overflow-y-auto">             <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="w-full max-w-[900px] my-auto"       >
+        <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-[90%]">
+          Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
+
+        {/* Strength Points */}
+        <div className="space-y-5 mb-10">
+          {strengths.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + (idx * 0.1) }}
+              className="flex gap-4 group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#540b0e]/5 flex items-center justify-center text-[#540b0e] group-hover:bg-[#540b0e] group-hover:text-white transition-all duration-300">
+                <item.icon size={20} />
+              </div>
+              <div>
+                <h3 className="text-[13px] md:text-sm font-bold text-gray-900 mb-0.5">{item.title}</h3>
+                <p className="text-[#8e8e8e] text-[11px] md:text-xs leading-relaxed max-w-[90%]">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.button
+          onClick={() => setIsModalOpen(true)}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full md:w-auto bg-[#540b0e] text-white px-8 py-3.5 rounded-md font-semibold text-[11px] uppercase tracking-[0.15em] shadow-lg shadow-red-900/20 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-2"
         >
-          <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-[90%]">
-            Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
-
-          {/* Strength Points */}
-          <div className="space-y-5 mb-10">
-            {strengths.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + (idx * 0.1) }}
-                className="flex gap-4 group"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#540b0e]/5 flex items-center justify-center text-[#540b0e] group-hover:bg-[#540b0e] group-hover:text-white transition-all duration-300">
-                  <item.icon size={20} />
-                </div>
-                <div>
-                  <h3 className="text-[13px] md:text-sm font-bold text-gray-900 mb-0.5">{item.title}</h3>
-                  <p className="text-[#8e8e8e] text-[11px] md:text-xs leading-relaxed max-w-[90%]">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.button
-            onClick={() => setIsModalOpen(true)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto bg-[#540b0e] text-white px-8 py-3.5 rounded-md font-semibold text-[11px] uppercase tracking-[0.15em] shadow-lg shadow-red-900/20 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-2"
-          >
-            CONNECT WITH US
-            <Send size={14} />
-          </motion.button>
-        </motion.div>
+          CONNECT WITH US
+          <Send size={14} />
+        </motion.button>
+      </motion.div>
       </section>
 
       {/* Scrolling Marquee Banner */}
