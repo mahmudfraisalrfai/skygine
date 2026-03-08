@@ -18,13 +18,13 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row font-sans overflow-hidden relative">
+    <div className="min-h-screen md:h-screen flex flex-col md:flex-row font-sans overflow-hidden relative">
       {/* Left Side: Space Nebula Background */}
-      <div className="relative w-full md:w-[60%] h-[50vh] md:h-screen overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen overflow-hidden">
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-110"
-          style={{ 
+          style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2022&auto=format&fit=crop')`,
             referrerPolicy: "no-referrer" as any
           }}
@@ -33,7 +33,7 @@ export default function App() {
 
         {/* Logo */}
         <div className="absolute top-8 left-8 md:top-12 md:left-20 z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
@@ -55,9 +55,9 @@ export default function App() {
             <p className="text-lg md:text-xl font-light mb-2 tracking-wide">Skygine Technologies</p>
             <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">COMING SOON</h1>
             <p className="text-xl md:text-2xl font-medium mb-8 text-white/90">Building the next travel technology powerhouse in Dubai</p>
-            
+
             <div className="w-24 md:w-48 h-[2px] bg-white/60 mb-8" />
-            
+
             <p className="text-lg md:text-2xl font-light max-w-xl leading-relaxed opacity-90 italic">
               A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
             </p>
@@ -66,8 +66,8 @@ export default function App() {
       </div>
 
       {/* Right Side: White Background Info */}
-      <div className="w-full md:w-[40%] bg-white flex items-center justify-center p-8 md:p-16 overflow-y-auto pb-24 md:pb-16">
-        <motion.div 
+      <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-16 overflow-y-auto pb-24 md:pb-16">
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -80,7 +80,7 @@ export default function App() {
           {/* Strength Points */}
           <div className="space-y-6 mb-10">
             {strengths.map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ export default function App() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden"
             >
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
               >
@@ -169,23 +169,23 @@ export default function App() {
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Full Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Email Address</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Message (Optional)</label>
-                    <textarea 
+                    <textarea
                       rows={3}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all resize-none"
                       placeholder="Tell us about your company, project, or partnership interest"
