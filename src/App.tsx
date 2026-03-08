@@ -20,7 +20,7 @@ export default function App() {
   return (
     <main className="min-h-screen md:h-screen flex flex-col md:flex-row font-sans overflow-hidden relative">
       {/* Left Side: Space Nebula Background */}
-      <section className="relative w-full md:w-1/2 h-[50vh] md:h-screen overflow-hidden">
+      <section className="relative w-full md:w-1/2 h-[50vh] min-h-[600px] md:h-screen overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-110"
@@ -32,7 +32,7 @@ export default function App() {
         <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
 
         {/* Logo */}
-        <div className="absolute top-8 left-8 md:top-12 md:left-20 z-10">
+        <div className="absolute top-8 left-8 md:top-10 md:left-14 z-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -41,20 +41,21 @@ export default function App() {
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-[#540b0e] rounded-sm rotate-45" />
             </div>
-            <span className="text-2xl font-bold tracking-widest text-white">SKYGINE</span>
+            <span className="text-xl md:text-2xl font-bold tracking-widest text-white">SKYGINE</span>
           </motion.div>
         </div>
 
         {/* Content Overlay */}
-        <div className="relative h-full flex flex-col justify-center px-8 md:px-20 pt-24 md:pt-32 pb-8 text-white">
+        <div className="relative h-full flex flex-col justify-center px-8 md:px-14 pt-20 pb-16 md:py-0 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="mt-12 md:mt-24"
           >
-            <h1 className="text-lg md:text-xl font-light mb-2 tracking-wide">Skygine Technologies</h1>
-            <h2 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">COMING SOON</h2>
-            <p className="text-xl md:text-2xl font-medium mb-8 text-white/90">Building the next travel technology powerhouse in Dubai</p>
+            <h1 className="text-base md:text-lg font-light mb-1 md:mb-2 tracking-wide">Skygine Technologies</h1>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tighter">COMING SOON</h2>
+            <p className="text-lg md:text-xl font-medium mb-6 md:mb-8 text-white/90 max-w-lg">Building the next travel technology powerhouse in Dubai</p>
 
             <div className="w-24 md:w-48 h-[2px] bg-white/60 mb-8" />
 
@@ -66,18 +67,18 @@ export default function App() {
       </section>
 
       {/* Right Side: White Background Info */}
-      <section className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-16 overflow-y-auto pb-24 md:pb-16">
+      <section className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-12 lg:p-16 overflow-y-auto pb-24 md:pb-12">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-md w-full"
+          className="max-w-xl w-full"
         >
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+          <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-[90%]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
 
           {/* Strength Points */}
-          <div className="space-y-6 mb-10">
+          <div className="space-y-5 mb-10">
             {strengths.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -90,8 +91,8 @@ export default function App() {
                   <item.icon size={20} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-[13px] md:text-sm font-bold text-gray-900 mb-0.5">{item.title}</h3>
+                  <p className="text-[#8e8e8e] text-[11px] md:text-xs leading-relaxed max-w-[90%]">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -101,7 +102,7 @@ export default function App() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto bg-[#540b0e] text-white px-10 py-4 rounded-md font-semibold text-xs uppercase tracking-[0.15em] shadow-lg shadow-red-900/20 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-2"
+            className="w-full md:w-auto bg-[#540b0e] text-white px-8 py-3.5 rounded-md font-semibold text-[11px] uppercase tracking-[0.15em] shadow-lg shadow-red-900/20 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-2"
           >
             CONNECT WITH US
             <Send size={14} />
