@@ -72,7 +72,7 @@ export default function App() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-xl w-full -mt-20 md:-mt-32"
+          className="max-w-xl w-full pb-8 md:pb-16"
         >
           <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-[90%]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
