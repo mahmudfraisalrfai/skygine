@@ -18,9 +18,9 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen md:h-screen flex flex-col md:flex-row font-sans overflow-hidden relative">
+    <main className="min-h-screen md:h-screen flex flex-col md:flex-row font-sans overflow-hidden relative">
       {/* Left Side: Space Nebula Background */}
-      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen overflow-hidden">
+      <section className="relative w-full md:w-1/2 h-[50vh] md:h-screen overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-110"
@@ -41,7 +41,7 @@ export default function App() {
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-[#540b0e] rounded-sm rotate-45" />
             </div>
-            <span className="text-2xl font-bold tracking-widest text-white">SKYGIN</span>
+            <span className="text-2xl font-bold tracking-widest text-white">SKYGINE</span>
           </motion.div>
         </div>
 
@@ -52,8 +52,8 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-lg md:text-xl font-light mb-2 tracking-wide">Skygine Technologies</p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">COMING SOON</h1>
+            <h1 className="text-lg md:text-xl font-light mb-2 tracking-wide">Skygine Technologies</h1>
+            <h2 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">COMING SOON</h2>
             <p className="text-xl md:text-2xl font-medium mb-8 text-white/90">Building the next travel technology powerhouse in Dubai</p>
 
             <div className="w-24 md:w-48 h-[2px] bg-white/60 mb-8" />
@@ -63,10 +63,10 @@ export default function App() {
             </p>
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Right Side: White Background Info */}
-      <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-16 overflow-y-auto pb-24 md:pb-16">
+      <section className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-16 overflow-y-auto pb-24 md:pb-16">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -74,8 +74,7 @@ export default function App() {
           className="max-w-md w-full"
         >
           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-            Skygine Technologies is currently in its licensing and setup phase in Dubai. We are building the technology company behind a new generation of travel products, platforms, and digital infrastructure — including brands such as Britrip, SafarHouse, Bookanda, and more.
-          </p>
+            Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
 
           {/* Strength Points */}
           <div className="space-y-6 mb-10">
@@ -108,7 +107,7 @@ export default function App() {
             <Send size={14} />
           </motion.button>
         </motion.div>
-      </div>
+      </section>
 
       {/* Scrolling Marquee Banner */}
       <div className="absolute bottom-0 left-0 w-full bg-[#540b0e] text-white py-3 overflow-hidden border-t border-white/10 z-20">
@@ -163,7 +162,7 @@ export default function App() {
               </button>
 
               <div className="p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Connect with Skygine</h2>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">Connect with Skygine</h3>
                 <p className="text-gray-500 mb-8">Skygine Technologies is preparing to launch its next-generation travel technology ecosystem from Dubai. Register your interest to receive updates, partnership news, and early access opportunities.</p>
 
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
@@ -204,6 +203,6 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }
