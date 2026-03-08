@@ -46,12 +46,12 @@ export default function App() {
         </div>
 
         {/* Content Overlay */}
-        <div className="relative h-full flex flex-col justify-center px-8 md:px-14 pt-20 pb-16 md:py-0 text-white">
+        <div className="relative h-full flex flex-col justify-center px-8 md:px-14 pt-16 pb-16 md:py-0 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mt-12 md:mt-24"
+            className="mt-6 md:mt-12"
           >
             <h1 className="text-base md:text-lg font-light mb-1 md:mb-2 tracking-wide">Skygine Technologies</h1>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tighter">COMING SOON</h2>
@@ -67,12 +67,12 @@ export default function App() {
       </section>
 
       {/* Right Side: White Background Info */}
-      <section className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-12 lg:p-16 overflow-y-auto pb-24 md:pb-12">
+      <section className="w-full md:w-1/2 bg-white flex items-center justify-center pt-4 px-8 pb-24 md:p-10 lg:p-12 overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-xl w-full"
+          className="max-w-xl w-full -mt-20 md:-mt-32"
         >
           <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-[90%]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.          </p>
