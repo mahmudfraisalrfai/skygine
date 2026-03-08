@@ -46,7 +46,7 @@ export default function App() {
         </div>
 
         {/* Content Overlay */}
-        <div className="relative h-full flex flex-col justify-center px-8 md:px-20 text-white">
+        <div className="relative h-full flex flex-col justify-center px-8 md:px-20 pt-24 md:pt-32 pb-8 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
