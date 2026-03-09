@@ -18,29 +18,29 @@ export default function App() {
   ];
 
   return (
-    <main className="min-h-[100vh] flex flex-col md:flex-row font-sans overflow-x-hidden relative bg-[#0a0a0a] md:bg-white text-white md:text-gray-900 w-full mx-auto max-w-[2500px] 3xl:max-w-[90vw] shadow-2xl">
+    <main className="min-h-[100vh] flex flex-col md:flex-row font-sans overflow-x-hidden relative bg-[#0a0a0a] md:bg-white text-white md:text-gray-900 w-full mx-auto shadow-2xl">
 
-      {/* Background Image - Full page on mobile, left half on desktop */}
-      <div className="absolute inset-0 md:w-1/2 md:min-h-[100vh] z-0 overflow-hidden bg-black">
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2022&auto=format&fit=crop')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            referrerPolicy: "no-referrer" as any
-          }}
-        />
-        {/* Dark overlay: 0.6 opacity on mobile for text readability, 0.3 on desktop */}
-        <div className="absolute inset-0 bg-black/60 md:bg-black/40 backdrop-blur-sm" />
-      </div>
+      {/* Left Content (Image & Text) - Exactly 50% width on Desktop */}
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-[100vh] flex flex-col justify-center px-6 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-24 pb-16 md:py-0 text-white items-center md:items-start text-center md:text-left overflow-hidden bg-black">
 
-      {/* Left Content (Text) */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-[100vh] flex flex-col justify-center px-6 sm:px-8 md:px-14 xl:px-[5vw] pt-24 pb-16 md:py-0 text-white items-center md:items-start text-center md:text-left">
+        {/* Background Image strictly contained within the left half */}
+        <div className="absolute inset-0 z-0">
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2022&auto=format&fit=crop')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              referrerPolicy: "no-referrer" as any
+            }}
+          />
+          <div className="absolute inset-0 bg-black/60 md:bg-black/40 backdrop-blur-sm" />
+        </div>
+
         {/* Logo */}
-        <div className="absolute top-6 sm:top-8 left-0 w-full flex justify-center md:justify-start md:left-14 xl:left-[5vw] z-20">
+        <div className="absolute top-6 sm:top-8 left-0 w-full flex justify-center md:justify-start md:left-[6vw] lg:left-[8vw] z-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -53,59 +53,63 @@ export default function App() {
           </motion.div>
         </div>
 
+        {/* Left Text Content - Removed max-width restrictions to allow spreading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-[90vw] lg:max-w-[80%] 2xl:max-w-[1200px] mt-8 md:mt-12 flex flex-col items-center md:items-start"
+          className="relative z-10 w-full mt-8 md:mt-12 flex flex-col items-center md:items-start"
         >
-          <h1 className="font-light mb-2 text-white/90 uppercase tracking-[0.2em] md:tracking-wide text-[clamp(0.875rem,1.5vw,1.25rem)]">
+          <h1 className="font-light mb-2 text-white/90 uppercase tracking-[0.2em] md:tracking-wide text-[clamp(0.875rem,1.5vw,1.25rem)] w-full">
             Skygine Technologies
           </h1>
 
-          <h2 className="font-bold mb-3 md:mb-5 tracking-tighter leading-[1.1] text-[clamp(2.5rem,8vw,6rem)]">
+          <h2 className="font-bold mb-3 md:mb-5 tracking-tighter leading-[1.1] text-[clamp(2.5rem,8vw,7rem)] w-full">
             COMING SOON
           </h2>
-          <p className="font-medium mb-6 md:mb-8 text-white/90 max-w-md md:max-w-lg xl:max-w-[80%] text-[clamp(1rem,1.5vw,1.5rem)]">
+
+          <p className="font-medium mb-6 md:mb-8 text-white/90 w-full md:w-[90%] text-[clamp(1rem,1.8vw,2rem)]">
             Building the next travel technology powerhouse in Dubai
           </p>
 
           <div className="w-16 sm:w-24 md:w-32 xl:w-48 h-[2px] bg-white/60 mb-6 md:mb-8" />
 
-          <p className="font-light max-w-xl xl:max-w-[85%] leading-relaxed opacity-90 italic px-2 md:px-0 text-[clamp(1rem,1.5vw,1.5rem)]">
+          <p className="font-light w-full md:w-[95%] leading-relaxed opacity-90 italic px-2 md:px-0 text-[clamp(1rem,1.5vw,1.75rem)]">
             A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
           </p>
         </motion.div>
       </section>
 
-      {/* Right Content (Features & CTA) */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-[50vh] md:min-h-[100vh] bg-transparent md:bg-white flex flex-col items-center md:items-start px-4 sm:px-8 py-12 md:py-16 md:px-12 xl:px-[5vw] lg:px-16 overflow-y-auto pb-[100px] md:pb-[120px]">
+      {/* Right Content (Features & CTA) - Exactly 50% width on Desktop */}
+      <section className="relative z-10 w-full md:w-1/2 min-h-[50vh] md:min-h-[100vh] bg-transparent md:bg-white flex flex-col items-center md:items-start px-4 sm:px-8 py-12 md:py-16 md:px-[6vw] lg:px-[8vw] overflow-y-auto pb-[100px] md:pb-[120px]">
+
+        {/* Right Text Content - Removed max-width restrictions */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full max-w-[90vw] md:max-w-[90%] xl:max-w-[1400px] my-auto flex flex-col items-center md:items-start"
+          className="w-full my-auto flex flex-col items-center md:items-start"
         >
-          <p className="text-white/80 md:text-gray-600 leading-relaxed mb-8 md:mb-12 max-w-[95%] md:max-w-[100%] text-center md:text-left text-[clamp(1rem,1.5vw,1.25rem)]">
+          <p className="text-white/80 md:text-gray-600 leading-relaxed mb-8 md:mb-12 w-full text-center md:text-left text-[clamp(1rem,1.5vw,1.5rem)]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.
           </p>
 
           {/* Strength Points */}
-          <div className="space-y-4 md:space-y-6 mb-10 md:mb-14 w-full sm:w-11/12 md:w-full">
+          <div className="space-y-4 md:space-y-8 mb-10 md:mb-14 w-full">
             {strengths.map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + (idx * 0.1) }}
-                className="flex flex-col sm:flex-row items-center sm:items-start md:items-start gap-3 sm:gap-5 xl:gap-6 p-5 sm:p-4 md:p-0 group rounded-2xl md:rounded-none bg-black/20 sm:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-transparent hover:bg-black/40 md:hover:bg-transparent transition-colors text-center md:text-left"
+                className="flex flex-col sm:flex-row items-center sm:items-start md:items-start gap-3 sm:gap-5 xl:gap-6 p-5 sm:p-4 md:p-0 group rounded-2xl md:rounded-none bg-black/20 sm:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-transparent hover:bg-black/40 md:hover:bg-transparent transition-colors text-center md:text-left w-full"
               >
-                <div className="flex-shrink-0 w-12 h-12 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-xl md:rounded-lg bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
-                  <item.icon className="w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7" />
+                <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 rounded-xl md:rounded-lg bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
+                  <item.icon className="w-5 h-5 md:w-7 md:h-7 xl:w-8 xl:h-8" />
                 </div>
-                <div className="flex-1 mt-1 sm:mt-0 xl:mt-1">
-                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-1 text-[clamp(1rem,1.5vw,1.25rem)]">{item.title}</h3>
-                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed max-w-full md:max-w-[95%] text-[clamp(0.875rem,1.2vw,1.125rem)]">{item.desc}</p>
+                <div className="flex-1 mt-1 sm:mt-0 xl:mt-1 w-full">
+                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1.1rem,1.5vw,1.5rem)]">{item.title}</h3>
+                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.9rem,1.2vw,1.25rem)]">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -115,10 +119,10 @@ export default function App() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto xl:min-w-[300px] bg-[#540b0e] text-white xl:py-5 px-8 py-4 md:py-3.5 rounded-xl md:rounded-md xl:rounded-lg font-semibold uppercase tracking-[0.15em] shadow-lg shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-3 text-[clamp(0.875rem,1.2vw,1rem)]"
+            className="w-full md:w-auto xl:min-w-[400px] bg-[#540b0e] text-white xl:py-6 px-8 py-4 md:py-4 rounded-xl md:rounded-md xl:rounded-lg font-semibold uppercase tracking-[0.15em] shadow-lg shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-3 text-[clamp(1rem,1.2vw,1.25rem)]"
           >
             CONNECT WITH US
-            <Send className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+            <Send className="w-4 h-4 xl:w-5 xl:h-5" />
           </motion.button>
         </motion.div>
       </section>
@@ -151,7 +155,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Modal Form */}
+      {/* Modal Form (Kept identical) */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
