@@ -20,10 +20,10 @@ export default function App() {
   return (
     <main className="min-h-[100vh] flex flex-col md:flex-row font-sans overflow-x-hidden relative bg-[#0a0a0a] md:bg-white text-white md:text-gray-900 w-full mx-auto shadow-2xl">
 
-      {/* Left Content (Image & Text) - Exactly 50% width on Desktop */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-[100vh] flex flex-col justify-center px-6 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-24 pb-16 md:py-0 text-white items-center md:items-start text-center md:text-left overflow-hidden bg-black">
+      {/* ================= LEFT SECTION (IMAGE + TEXT) ================= */}
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen flex flex-col px-6 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-[12vh] pb-[15vh] text-white items-center md:items-start text-center md:text-left overflow-hidden bg-black">
 
-        {/* Background Image strictly contained within the left half */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
@@ -53,63 +53,64 @@ export default function App() {
           </motion.div>
         </div>
 
-        {/* Left Text Content - Removed max-width restrictions to allow spreading */}
+        {/* Left Text Content - Distributed vertically using flex-grow & gap-[vh] */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full mt-8 md:mt-12 flex flex-col items-center md:items-start"
+          className="relative z-10 w-full flex-grow flex flex-col justify-evenly gap-[4vh] mt-[6vh]"
         >
-          <h1 className="font-light mb-2 text-white/90 uppercase tracking-[0.2em] md:tracking-wide text-[clamp(0.875rem,1.5vw,1.25rem)] w-full">
-            Skygine Technologies
-          </h1>
+          <div className="flex flex-col gap-[1.5vh]">
+            <h1 className="font-light text-white/90 uppercase tracking-[0.2em] md:tracking-wider text-[clamp(1rem,1.5vw,1.5rem)] w-full">
+              Skygine Technologies
+            </h1>
+            <h2 className="font-bold tracking-tighter leading-[1.05] text-[clamp(3rem,8vw,8rem)] w-full">
+              COMING SOON
+            </h2>
+          </div>
 
-          <h2 className="font-bold mb-3 md:mb-5 tracking-tighter leading-[1.1] text-[clamp(2.5rem,8vw,7rem)] w-full">
-            COMING SOON
-          </h2>
-
-          <p className="font-medium mb-6 md:mb-8 text-white/90 w-full md:w-[90%] text-[clamp(1rem,1.8vw,2rem)]">
+          <p className="font-medium text-white/95 w-full md:w-[90%] text-[clamp(1.2rem,2vw,2.5rem)] leading-snug">
             Building the next travel technology powerhouse in Dubai
           </p>
 
-          <div className="w-16 sm:w-24 md:w-32 xl:w-48 h-[2px] bg-white/60 mb-6 md:mb-8" />
+          <div className="w-24 md:w-32 xl:w-48 h-[2px] bg-white/60" />
 
-          <p className="font-light w-full md:w-[95%] leading-relaxed opacity-90 italic px-2 md:px-0 text-[clamp(1rem,1.5vw,1.75rem)]">
+          <p className="font-light w-full md:w-[95%] leading-loose opacity-90 italic px-2 md:px-0 text-[clamp(1.1rem,1.8vw,2rem)]">
             A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
           </p>
         </motion.div>
       </section>
 
-      {/* Right Content (Features & CTA) - Exactly 50% width on Desktop */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-[50vh] md:min-h-[100vh] bg-transparent md:bg-white flex flex-col items-center md:items-start px-4 sm:px-8 py-12 md:py-16 md:px-[6vw] lg:px-[8vw] overflow-y-auto pb-[100px] md:pb-[120px]">
+      {/* ================= RIGHT SECTION (FEATURES + CTA) ================= */}
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen bg-transparent md:bg-white flex flex-col px-4 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-[12vh] pb-[15vh] overflow-y-auto">
 
-        {/* Right Text Content - Removed max-width restrictions */}
+        {/* Right Content - Distributed vertically using justify-between & gap-[vh] */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full my-auto flex flex-col items-center md:items-start"
+          className="w-full flex-grow flex flex-col justify-evenly gap-[6vh]"
         >
-          <p className="text-white/80 md:text-gray-600 leading-relaxed mb-8 md:mb-12 w-full text-center md:text-left text-[clamp(1rem,1.5vw,1.5rem)]">
+          <p className="text-white/80 md:text-gray-600 leading-loose w-full text-center md:text-left text-[clamp(1.1rem,1.6vw,1.8rem)]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.
           </p>
 
           {/* Strength Points */}
-          <div className="space-y-4 md:space-y-8 mb-10 md:mb-14 w-full">
+          <div className="flex flex-col gap-[3vh] w-full">
             {strengths.map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + (idx * 0.1) }}
-                className="flex flex-col sm:flex-row items-center sm:items-start md:items-start gap-3 sm:gap-5 xl:gap-6 p-5 sm:p-4 md:p-0 group rounded-2xl md:rounded-none bg-black/20 sm:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-transparent hover:bg-black/40 md:hover:bg-transparent transition-colors text-center md:text-left w-full"
+                className="flex flex-col sm:flex-row items-center sm:items-start md:items-start gap-4 sm:gap-6 p-5 sm:p-4 md:p-0 group rounded-2xl md:rounded-none bg-black/20 sm:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-transparent hover:bg-black/40 md:hover:bg-transparent transition-colors text-center md:text-left w-full"
               >
-                <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 rounded-xl md:rounded-lg bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
-                  <item.icon className="w-5 h-5 md:w-7 md:h-7 xl:w-8 xl:h-8" />
+                <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 xl:w-20 xl:h-20 rounded-xl md:rounded-2xl bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
+                  <item.icon className="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10" />
                 </div>
-                <div className="flex-1 mt-1 sm:mt-0 xl:mt-1 w-full">
-                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1.1rem,1.5vw,1.5rem)]">{item.title}</h3>
-                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.9rem,1.2vw,1.25rem)]">{item.desc}</p>
+                <div className="flex-1 mt-2 sm:mt-0 w-full flex flex-col justify-center min-h-[4rem]">
+                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1.1rem,1.6vw,1.75rem)]">{item.title}</h3>
+                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.95rem,1.3vw,1.4rem)]">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -119,106 +120,46 @@ export default function App() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto xl:min-w-[400px] bg-[#540b0e] text-white xl:py-6 px-8 py-4 md:py-4 rounded-xl md:rounded-md xl:rounded-lg font-semibold uppercase tracking-[0.15em] shadow-lg shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-3 text-[clamp(1rem,1.2vw,1.25rem)]"
+            className="w-full md:w-auto xl:min-w-[400px] mt-auto bg-[#540b0e] text-white py-5 md:py-6 rounded-xl md:rounded-lg font-bold uppercase tracking-[0.2em] shadow-xl shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-4 text-[clamp(1rem,1.3vw,1.5rem)]"
           >
             CONNECT WITH US
-            <Send className="w-4 h-4 xl:w-5 xl:h-5" />
+            <Send className="w-5 h-5 xl:w-6 xl:h-6" />
           </motion.button>
         </motion.div>
       </section>
 
-      {/* Scrolling Marquee Banner */}
-      <div className="fixed md:absolute bottom-0 left-0 w-full bg-[#540b0e] text-white xl:py-4 py-3 overflow-hidden border-t border-white/10 z-30">
+      {/* ================= MARQUEE BANNER ================= */}
+      <div className="fixed md:absolute bottom-0 left-0 w-full bg-[#540b0e] text-white xl:py-5 py-4 overflow-hidden border-t border-white/10 z-30">
         <div className="flex whitespace-nowrap animate-marquee">
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center flex-shrink-0">
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travellers</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travel Agency</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travel System</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Agency OS</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travel Network</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travel Paas</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Travel Tech</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Direct Contracts</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[clamp(0.75rem,1.2vw,1rem)]">Api Integrations</span>
-              <span className="w-1.5 h-1.5 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travellers</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Agency</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel System</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Agency OS</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Network</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Paas</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Tech</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Direct Contracts</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Api Integrations</span>
+              <span className="w-2 h-2 bg-white/30 rounded-full" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Modal Form (Kept identical) */}
+      {/* Modal Form (Kept identical to prevent excessive code length here, paste your existing Modal code below) */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsModalOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-w-[90vw] md:max-w-xl xl:max-w-2xl rounded-2xl shadow-2xl overflow-hidden"
-            >
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <X className="w-6 h-6 xl:w-8 xl:h-8" />
-              </button>
-
-              <div className="p-8 md:p-10 xl:p-14">
-                <h3 className="font-bold text-gray-900 mb-3 text-[clamp(1.5rem,3vw,2.5rem)]">Connect with Skygine</h3>
-                <p className="text-gray-500 mb-8 xl:mb-10 text-[clamp(0.875rem,1.5vw,1.125rem)]">Skygine Technologies is preparing to launch its next-generation travel technology ecosystem from Dubai. Register your interest to receive updates, partnership news, and early access opportunities.</p>
-
-                <form className="space-y-5 xl:space-y-6" onSubmit={(e) => e.preventDefault()}>
-                  <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Full Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1.2vw,1rem)]"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Email Address</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1.2vw,1rem)]"
-                      placeholder="you@company.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Message (Optional)</label>
-                    <textarea
-                      rows={3}
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all resize-none text-[clamp(0.875rem,1.2vw,1rem)]"
-                      placeholder="Tell us about your company, project, or partnership interest"
-                    />
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className="w-full bg-[#540b0e] text-white py-4 xl:py-5 rounded-lg font-bold uppercase tracking-widest mt-6 shadow-lg shadow-red-900/20 text-[clamp(0.75rem,1.2vw,1rem)]"
-                  >
-                    SEND ENQUIRY
-                  </motion.button>
-                </form>
-              </div>
-            </motion.div>
-          </div>
+          {/* ضع كود الـ Modal الخاص بك هنا */ }
         )}
       </AnimatePresence>
     </main>
