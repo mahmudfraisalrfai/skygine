@@ -5,10 +5,46 @@
 
 import { Send, X, Zap, Globe, BarChart3, Cloud } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mreypklq", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setStatus("idle");
+        }, 3000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+      setStatus("error");
+    }
+  };
 
   const strengths = [
     { icon: Globe, title: "Travel Technology Ecosystem", desc: "A unified digital infrastructure for the future of travel." },
@@ -178,7 +214,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-w-[90vw] md:max-w-xl xl:max-w-2xl rounded-2xl shadow-2xl overflow-hidden"
+              className="relative bg-white w-full max-w-[90vw] md:max-w-xl xl:max-w-2xl rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh]"
             >
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -191,11 +227,14 @@ export default function App() {
                 <h3 className="font-bold text-gray-900 mb-3 text-[clamp(1.25rem,2vw,1.75rem)]">Connect with Skygine</h3>
                 <p className="text-gray-500 mb-8 xl:mb-10 text-[clamp(0.875rem,1.2vw,1rem)]">Skygine Technologies is preparing to launch its next-generation travel technology ecosystem from Dubai. Register your interest to receive updates, partnership news, and early access opportunities.</p>
 
-                <form className="space-y-5 xl:space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-5 xl:space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Full Name</label>
                     <input
                       type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="Your full name"
                     />
@@ -204,6 +243,9 @@ export default function App() {
                     <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Email Address</label>
                     <input
                       type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="you@company.com"
                     />
@@ -212,16 +254,40 @@ export default function App() {
                     <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Message (Optional)</label>
                     <textarea
                       rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all resize-none text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="Tell us about your company, project, or partnership interest"
                     />
                   </div>
+
+                  {status === "success" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-green-50 text-green-700 rounded-lg text-sm font-medium border border-green-200"
+                    >
+                      Thank you! Your message has been sent successfully.
+                    </motion.div>
+                  )}
+
+                  {status === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-red-50 text-red-700 rounded-lg text-sm font-medium border border-red-200"
+                    >
+                      Something went wrong. Please try again later.
+                    </motion.div>
+                  )}
+
                   <motion.button
+                    disabled={status === "submitting"}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className="w-full bg-[#540b0e] text-white py-4 xl:py-5 rounded-lg font-bold uppercase tracking-widest mt-6 shadow-lg shadow-red-900/20 text-[clamp(0.75rem,0.9vw,0.875rem)]"
+                    className={`w-full bg-[#540b0e] text-white py-4 xl:py-5 rounded-lg font-bold uppercase tracking-widest mt-6 shadow-lg shadow-red-900/20 text-[clamp(0.75rem,0.9vw,0.875rem)] ${status === "submitting" ? "opacity-70 cursor-not-allowed" : ""}`}
                   >
-                    SEND ENQUIRY
+                    {status === "submitting" ? "Sending..." : "SEND ENQUIRY"}
                   </motion.button>
                 </form>
               </div>
