@@ -18,10 +18,10 @@ export default function App() {
   ];
 
   return (
-    <main className="min-h-[100vh] flex flex-col md:flex-row font-sans overflow-x-hidden relative bg-[#0a0a0a] md:bg-white text-white md:text-gray-900 w-full mx-auto shadow-2xl">
+    <main className="min-h-[100vh] md:h-screen flex flex-col md:flex-row font-sans overflow-x-hidden md:overflow-hidden relative bg-[#0a0a0a] md:bg-white text-white md:text-gray-900 w-full max-w-[1920px] mx-auto shadow-2xl">
 
       {/* ================= LEFT SECTION (IMAGE + TEXT) ================= */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-screen flex flex-col px-6 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-[12vh] pb-[15vh] text-white items-center md:items-start text-center md:text-left overflow-hidden bg-black">
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-0 md:h-full flex flex-col px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 pt-[12vh] pb-[15vh] md:pt-[8vh] md:pb-[12vh] text-white items-center md:items-start text-center md:text-left overflow-hidden bg-black">
 
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -49,7 +49,7 @@ export default function App() {
             <div className="w-8 h-8 xl:w-12 xl:h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
               <div className="w-4 h-4 xl:w-6 xl:h-6 bg-[#540b0e] rounded-sm rotate-45" />
             </div>
-            <span className="font-bold tracking-widest text-white drop-shadow-md text-[clamp(1.125rem,2vw,1.75rem)]">SKYGINE</span>
+            <span className="font-bold tracking-widest text-white drop-shadow-md text-[clamp(1.125rem,1.5vw,1.5rem)]">SKYGINE</span>
           </motion.div>
         </div>
 
@@ -57,46 +57,50 @@ export default function App() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 w-full flex-grow flex flex-col justify-evenly gap-[4vh] mt-[6vh]"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 w-full flex-grow flex flex-col justify-center gap-8 md:gap-10 mt-[8vh] md:mt-0"
         >
-          <div className="flex flex-col gap-[1.5vh]">
-            <h1 className="font-light text-white/90 uppercase tracking-[0.2em] md:tracking-wider text-[clamp(1rem,1.5vw,1.5rem)] w-full">
-              Skygine Technologies
-            </h1>
-            <h2 className="font-bold tracking-tighter leading-[1.05] text-[clamp(3rem,8vw,8rem)] w-full">
+          <div className="flex flex-col gap-2 md:gap-3">
+            <div className="flex items-center gap-3 md:gap-4 mb-1 md:mb-2">
+              <div className="h-[2px] w-8 md:w-12 bg-[#540b0e]" />
+              <h1 className="font-semibold text-white/80 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[clamp(0.7rem,1vw,0.875rem)]">
+                Skygine Technologies
+              </h1>
+            </div>
+            <h2 className="font-extrabold tracking-tighter leading-none md:leading-[1.05] text-[clamp(2.25rem,5.5vw,5.5rem)] w-full text-white drop-shadow-md">
               COMING SOON
             </h2>
           </div>
 
-          <p className="font-medium text-white/95 w-full md:w-[90%] text-[clamp(1.2rem,2vw,2.5rem)] leading-snug">
-            Building the next travel technology powerhouse in Dubai
+          <p className="font-light text-white/95 w-full md:max-w-[85%] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-snug">
+            Building the next travel technology powerhouse in Dubai.
           </p>
 
-          <div className="w-24 md:w-32 xl:w-48 h-[2px] bg-white/60" />
-
-          <p className="font-light w-full md:w-[95%] leading-loose opacity-90 italic px-2 md:px-0 text-[clamp(1.1rem,1.8vw,2rem)]">
-            A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
-          </p>
+          <div className="flex flex-col gap-5 md:gap-6 mt-2">
+            <div className="w-12 h-[2px] md:h-[1px] bg-white/30" />
+            <p className="font-light w-full md:max-w-[80%] text-white/60 leading-relaxed text-[clamp(0.95rem,1.1vw,1.125rem)]">
+              A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
+            </p>
+          </div>
         </motion.div>
       </section>
 
       {/* ================= RIGHT SECTION (FEATURES + CTA) ================= */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-screen bg-transparent md:bg-white flex flex-col px-4 sm:px-8 md:px-[6vw] lg:px-[8vw] pt-[12vh] pb-[15vh] overflow-y-auto">
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-0 md:h-full bg-transparent md:bg-white flex flex-col px-4 sm:px-8 md:px-10 lg:px-16 xl:px-20 pt-[12vh] pb-[15vh] md:pt-[8vh] md:pb-[12vh] overflow-y-auto">
 
         {/* Right Content - Distributed vertically using justify-between & gap-[vh] */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full flex-grow flex flex-col justify-evenly gap-[6vh]"
+          className="w-full flex-grow flex flex-col justify-evenly gap-[6vh] md:gap-[3vh]"
         >
-          <p className="text-white/80 md:text-gray-600 leading-loose w-full text-center md:text-left text-[clamp(1.1rem,1.6vw,1.8rem)]">
+          <p className="text-white/80 md:text-gray-600 leading-loose w-full text-center md:text-left text-[clamp(0.95rem,1.1vw,1.25rem)]">
             Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.
           </p>
 
           {/* Strength Points */}
-          <div className="flex flex-col gap-[3vh] w-full">
+          <div className="flex flex-col gap-[3vh] md:justify-around md:flex-grow w-full">
             {strengths.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -108,9 +112,9 @@ export default function App() {
                 <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 xl:w-20 xl:h-20 rounded-xl md:rounded-2xl bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
                   <item.icon className="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10" />
                 </div>
-                <div className="flex-1 mt-2 sm:mt-0 w-full flex flex-col justify-center min-h-[4rem]">
-                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1.1rem,1.6vw,1.75rem)]">{item.title}</h3>
-                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.95rem,1.3vw,1.4rem)]">{item.desc}</p>
+                <div className="flex-1 mt-2 sm:mt-0 w-full flex flex-col justify-center min-h-[3rem]">
+                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1rem,1.2vw,1.375rem)]">{item.title}</h3>
+                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.875rem,1vw,1.125rem)]">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -120,7 +124,7 @@ export default function App() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto xl:min-w-[400px] mt-auto bg-[#540b0e] text-white py-5 md:py-6 rounded-xl md:rounded-lg font-bold uppercase tracking-[0.2em] shadow-xl shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-4 text-[clamp(1rem,1.3vw,1.5rem)]"
+            className="w-full md:w-auto xl:min-w-[400px] mt-auto md:mt-[4vh] mb-[2vh] md:mb-[5vh] bg-[#540b0e] text-white py-5 md:py-6 rounded-xl md:rounded-lg font-bold uppercase tracking-[0.2em] shadow-xl shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-4 text-[clamp(0.875rem,1vw,1.125rem)]"
           >
             CONNECT WITH US
             <Send className="w-5 h-5 xl:w-6 xl:h-6" />
@@ -133,23 +137,23 @@ export default function App() {
         <div className="flex whitespace-nowrap animate-marquee">
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center flex-shrink-0">
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travellers</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travellers</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Agency</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travel Agency</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel System</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travel System</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Agency OS</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Agency OS</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Network</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travel Network</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Paas</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travel Paas</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Travel Tech</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Travel Tech</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Direct Contracts</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Direct Contracts</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
-              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.8rem,1.2vw,1.1rem)]">Api Integrations</span>
+              <span className="mx-6 md:mx-10 font-bold uppercase tracking-[0.3em] text-[clamp(0.75rem,0.9vw,0.9rem)]">Api Integrations</span>
               <span className="w-2 h-2 bg-white/30 rounded-full" />
             </div>
           ))}
@@ -181,38 +185,38 @@ export default function App() {
               </button>
 
               <div className="p-8 md:p-10 xl:p-14">
-                <h3 className="font-bold text-gray-900 mb-3 text-[clamp(1.5rem,3vw,2.5rem)]">Connect with Skygine</h3>
-                <p className="text-gray-500 mb-8 xl:mb-10 text-[clamp(0.875rem,1.5vw,1.125rem)]">Skygine Technologies is preparing to launch its next-generation travel technology ecosystem from Dubai. Register your interest to receive updates, partnership news, and early access opportunities.</p>
+                <h3 className="font-bold text-gray-900 mb-3 text-[clamp(1.25rem,2vw,1.75rem)]">Connect with Skygine</h3>
+                <p className="text-gray-500 mb-8 xl:mb-10 text-[clamp(0.875rem,1.2vw,1rem)]">Skygine Technologies is preparing to launch its next-generation travel technology ecosystem from Dubai. Register your interest to receive updates, partnership news, and early access opportunities.</p>
 
                 <form className="space-y-5 xl:space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Full Name</label>
+                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Full Name</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1.2vw,1rem)] text-gray-900"
+                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Email Address</label>
+                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Email Address</label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1.2vw,1rem)] text-gray-900"
+                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
-                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,1vw,0.875rem)]">Message (Optional)</label>
+                    <label className="block font-semibold uppercase tracking-wider text-gray-400 mb-1.5 text-[clamp(0.7rem,0.9vw,0.8rem)]">Message (Optional)</label>
                     <textarea
                       rows={3}
-                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all resize-none text-[clamp(0.875rem,1.2vw,1rem)] text-gray-900"
+                      className="w-full px-4 py-3 xl:py-4 xl:px-5 rounded-lg border border-gray-200 focus:border-[#540b0e] focus:ring-2 focus:ring-[#540b0e]/20 outline-none transition-all resize-none text-[clamp(0.875rem,1vw,0.95rem)] text-gray-900"
                       placeholder="Tell us about your company, project, or partnership interest"
                     />
                   </div>
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className="w-full bg-[#540b0e] text-white py-4 xl:py-5 rounded-lg font-bold uppercase tracking-widest mt-6 shadow-lg shadow-red-900/20 text-[clamp(0.75rem,1.2vw,1rem)]"
+                    className="w-full bg-[#540b0e] text-white py-4 xl:py-5 rounded-lg font-bold uppercase tracking-widest mt-6 shadow-lg shadow-red-900/20 text-[clamp(0.75rem,0.9vw,0.875rem)]"
                   >
                     SEND ENQUIRY
                   </motion.button>
