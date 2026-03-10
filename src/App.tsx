@@ -58,27 +58,27 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-10 w-full flex-grow flex flex-col justify-center gap-8 md:gap-10 mt-[8vh] md:mt-0"
+          className="relative z-10 w-full flex-grow flex flex-col justify-center gap-6 md:gap-8 mt-[6vh] md:mt-0"
         >
-          <div className="flex flex-col gap-2 md:gap-3">
-            <div className="flex items-center gap-3 md:gap-4 mb-1 md:mb-2">
-              <div className="h-[2px] w-8 md:w-12 bg-[#540b0e]" />
-              <h1 className="font-semibold text-white/80 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[clamp(0.7rem,1vw,0.875rem)]">
+          <div className="flex flex-col gap-1.5 md:gap-2">
+            <div className="flex items-center gap-3 md:gap-4 mb-0.5">
+              <div className="h-[2px] w-8 md:w-10 bg-[#540b0e]" />
+              <h1 className="font-semibold text-white/80 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[0.7rem] md:text-[0.75rem]">
                 Skygine Technologies
               </h1>
             </div>
-            <h2 className="font-extrabold tracking-tighter leading-none md:leading-[1.05] text-[clamp(2.25rem,5.5vw,5.5rem)] w-full text-white drop-shadow-md">
+            <h2 className="font-extrabold tracking-tighter leading-none text-[clamp(2rem,4.5vw,4.5rem)] w-full text-white drop-shadow-md">
               COMING SOON
             </h2>
           </div>
 
-          <p className="font-light text-white/95 w-full md:max-w-[85%] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-snug">
+          <p className="font-light text-white/95 w-full md:max-w-[90%] text-[1rem] md:text-[1.25rem] leading-snug">
             Building the next travel technology powerhouse in Dubai.
           </p>
 
-          <div className="flex flex-col gap-5 md:gap-6 mt-2">
-            <div className="w-12 h-[2px] md:h-[1px] bg-white/30" />
-            <p className="font-light w-full md:max-w-[80%] text-white/60 leading-relaxed text-[clamp(0.95rem,1.1vw,1.125rem)]">
+          <div className="flex flex-col gap-4 mt-2">
+            <div className="w-12 h-[1px] bg-white/30" />
+            <p className="font-light w-full md:max-w-[85%] text-white/60 leading-relaxed text-[0.875rem] md:text-[1rem]">
               A future-ready ecosystem for travel platforms, booking products, agency operations, and intelligent travel infrastructure.
             </p>
           </div>
@@ -86,21 +86,21 @@ export default function App() {
       </section>
 
       {/* ================= RIGHT SECTION (FEATURES + CTA) ================= */}
-      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-0 md:h-full bg-transparent md:bg-white flex flex-col px-4 sm:px-8 md:px-10 lg:px-16 xl:px-20 pt-[12vh] pb-[15vh] md:pt-[8vh] md:pb-[12vh] overflow-y-auto">
+      <section className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-0 md:h-full bg-transparent md:bg-white flex flex-col px-4 sm:px-8 md:px-10 lg:px-16 xl:px-20 pt-10 md:pt-12 lg:pt-[10vh] pb-12 md:pb-16 lg:pb-[15vh] overflow-y-auto overflow-x-hidden">
 
         {/* Right Content - Distributed vertically using justify-between & gap-[vh] */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full flex-grow flex flex-col justify-evenly gap-[6vh] md:gap-[3vh]"
+          className="w-full flex-grow flex flex-col justify-evenly gap-4 md:gap-3"
         >
-          <p className="text-white/80 md:text-gray-600 leading-loose w-full text-center md:text-left text-[clamp(0.95rem,1.1vw,1.25rem)]">
-            Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market that power modern travel products, platforms, and digital infrastructure.
+          <p className="text-white/80 md:text-gray-600 leading-tight md:leading-snug lg:leading-normal w-full text-center md:text-left text-[0.875rem] lg:text-[1.1rem]">
+            Skygine Technologies is currently forming as a next‑generation travel technology company, building advanced B2B, B2C, Agency needs and SaaS systems in the travel market.
           </p>
 
-          {/* Strength Points */}
-          <div className="flex flex-col gap-[3vh] md:justify-around md:flex-grow w-full">
+          {/* Strength Points - Single Column as requested, with scrolling */}
+          <div className="flex flex-col gap-4 md:gap-3 lg:gap-[4vh] w-full">
             {strengths.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -109,12 +109,12 @@ export default function App() {
                 transition={{ delay: 0.5 + (idx * 0.1) }}
                 className="flex flex-col sm:flex-row items-center sm:items-start md:items-start gap-4 sm:gap-6 p-5 sm:p-4 md:p-0 group rounded-2xl md:rounded-none bg-black/20 sm:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-transparent hover:bg-black/40 md:hover:bg-transparent transition-colors text-center md:text-left w-full"
               >
-                <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 xl:w-20 xl:h-20 rounded-xl md:rounded-2xl bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
-                  <item.icon className="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10" />
+                <div className="flex-shrink-0 w-12 h-12 md:w-6 md:h-6 lg:w-12 lg:h-12 xl:w-16 xl:h-16 rounded-lg bg-white/10 md:bg-[#540b0e]/5 flex items-center justify-center text-white md:text-[#540b0e] group-hover:bg-white/20 group-hover:md:bg-[#540b0e] group-hover:md:text-white transition-all duration-300">
+                  <item.icon className="w-5 h-5 md:w-3.5 md:h-3.5 lg:w-6 lg:h-6 xl:w-8 xl:h-8" />
                 </div>
-                <div className="flex-1 mt-2 sm:mt-0 w-full flex flex-col justify-center min-h-[3rem]">
-                  <h3 className="font-bold text-white md:text-gray-900 mb-1.5 md:mb-2 text-[clamp(1rem,1.2vw,1.375rem)]">{item.title}</h3>
-                  <p className="text-white/70 md:text-[#8e8e8e] leading-relaxed w-full text-[clamp(0.875rem,1vw,1.125rem)]">{item.desc}</p>
+                <div className="flex-1 w-full flex flex-col justify-center">
+                  <h3 className="font-bold text-white md:text-gray-900 mb-0.5 md:mb-0.5 text-[0.8rem] lg:text-[1.25rem]">{item.title}</h3>
+                  <p className="text-white/70 md:text-[#8e8e8e] leading-tight w-full text-[0.65rem] lg:text-[1rem]">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -124,11 +124,14 @@ export default function App() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto xl:min-w-[400px] mt-auto md:mt-[4vh] mb-[2vh] md:mb-[5vh] bg-[#540b0e] text-white py-5 md:py-6 rounded-xl md:rounded-lg font-bold uppercase tracking-[0.2em] shadow-xl shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-4 text-[clamp(0.875rem,1vw,1.125rem)]"
+            className="w-full md:w-auto lg:min-w-[400px] mt-6 md:mt-8 mb-12 md:mb-16 lg:mb-[8vh] bg-[#540b0e] text-white py-4 md:py-3 lg:py-6 rounded-xl md:rounded-lg font-bold uppercase tracking-[0.2em] shadow-xl shadow-red-900/30 hover:bg-[#3d080a] transition-colors flex items-center justify-center gap-4 text-[0.875rem] lg:text-[1.1rem]"
           >
             CONNECT WITH US
             <Send className="w-5 h-5 xl:w-6 xl:h-6" />
           </motion.button>
+
+          {/* Bottom Spacer to clear the fixed Marquee footer on scroll */}
+          <div className="h-12 md:h-16 w-full flex-shrink-0" />
         </motion.div>
       </section>
 
